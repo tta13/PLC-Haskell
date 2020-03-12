@@ -21,7 +21,5 @@ emprestado b l
 qtdEmprestimos :: Banco -> Pessoa -> Int
 qtdEmprestimos b p = length (livros b p)
 
-
-
 devolver :: Banco -> Pessoa -> Livro -> Banco
 devolver b p l = [(anyP, anyB) | (anyP, anyB) <- b, (anyP /= p || anyB /= l)]
