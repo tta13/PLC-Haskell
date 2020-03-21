@@ -1,6 +1,6 @@
 quickSort :: [Int] -> [Int]
-quickSort [] = []
-quickSort [x] = [x]
+quickSort []     = []
+quickSort [x]    = [x]
 quickSort (h:tl) = quickSort (particionaLeft (h:tl)) ++ h:[] ++ quickSort (particionaRight (h:tl))
 
 

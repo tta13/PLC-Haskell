@@ -12,7 +12,7 @@ emprestimos :: Banco -> Livro -> [Pessoa]
 emprestimos b l = [p | (p,b) <- b, b == l]
 
 emprestado :: Banco -> Livro -> Bool
-emprestado [] _ = False
+emprestado [] _         = False
 emprestado b l
     | l == snd (head b) = True
     | otherwise         = emprestado (tail b) l
