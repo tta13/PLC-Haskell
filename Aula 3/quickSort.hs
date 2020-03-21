@@ -1,18 +1,12 @@
 quickSort :: [Int] -> [Int]
 quickSort [] = []
 quickSort [x] = [x]
---quickSort (h:t)
+quickSort (h:tl) = quickSort (particionaLeft (h:tl)) ++ h:[] ++ quickSort (particionaRight (h:tl))
 
 
 
-particionaLeft :: [Int] -> Int -> [Int]
-particionaLeft [] _  = []
-particionaLeft (h:t) pivot
-    | h <= pivot     = h:particionaLeft t pivot
-    | otherwise      = particionaLeft t pivot
+particionaLeft :: [Int] -> [Int]
+particionaLeft (h:tl) = [n | n <- tl, n <= h]
 
-particionaRight :: [Int] -> Int -> [Int]
-particionaRight [] _  = []
-particionaRight (h:t) pivot
-    | h > pivot       = h:particionaRight t pivot
-    | otherwise       = particionaRight t pivot 
+particionaRight :: [Int] -> [Int]
+particionaRight (h:tl) = [n | n <- tl, n > h]
