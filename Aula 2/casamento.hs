@@ -17,6 +17,4 @@ sumPairs (x:xs) (y:ys) = (x + y):[] ++ sumPairs xs ys
 
 digits :: String -> String
 digits [] = []
-digits (h:tl)
-    | h >= '0' && h <= '9' = h:digits tl
-    | otherwise          = digits tl
+digits word = [ch | ch <- word, ch >= '0' && ch <= '9']
