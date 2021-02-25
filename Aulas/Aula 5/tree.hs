@@ -19,6 +19,11 @@ buildBST :: Ord t => [t] -> Tree t
 buildBST []   = Nilt
 buildBST list = insertList Nilt list
 
+isBST :: Ord t => Tree t -> t -> t -> Bool
+isBST Nilt _ _                    = True
+isBST (Node n left right) min max = not(n < min) && not(n > max) && isBST left min n && isBST right n max  
+
+
 searchTreeSort :: Ord t => [t] -> [t]
 searchTreeSort list = inOrder (buildBST list)
 
